@@ -81,7 +81,19 @@
     [46.4894534,	10.903429],
     [45.4194534,	11.963429],
     [45.7804534,	12.993429]
-]).addTo(mymap);
+    ]).addTo(map);
+    
+    /*Coordinates on click*/
+    var popup = L.popup();
+
+    function onMapClick(e) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent("You clicked the map at " + e.latlng.toString())
+            .openOn(map);
+    }
+
+    map.on('click', onMapClick);
   </script>
 </body>
 </html>
